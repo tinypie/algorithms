@@ -3,6 +3,7 @@ to algorithm and programming pearls, I implement the basic idea. Push the code i
 
 The algorithm mainly include:
 sorting algorithms
+
 	insert sort
 	select sort
 	buffer sort
@@ -14,16 +15,16 @@ sorting algorithms
 	radix sort
 
 search algorthms
+
 	find the max and mix
 	rondamized median algorithm
-
 	hash 
 
 basic data structure
+
 	link lisk
 	stack
 	queue
-
 	binary tree
 
 divide and conquer

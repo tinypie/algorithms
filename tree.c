@@ -166,6 +166,7 @@ struct bst *tree_max(struct bst *root)
  *    也就是用Z的直接后继替代Z
  */
 
+/* 这个是正确的 */
 struct bst *tree_delete(struct bst *root, int data)
 {
 	struct bst *tmp;
@@ -178,12 +179,6 @@ struct bst *tree_delete(struct bst *root, int data)
 	} else if (root->key < data) {
 		root->right = tree_delete(root->right, data);
 	} else {
-		/*
-		if (root->left && root->right) {
-			tmp = tree_min(root->right);
-			root->key = tmp->key;
-			node->
-		*/
 		if (root->left == NULL) { 	/* case 1 */
 			tmp = root->right;
 			free(root);

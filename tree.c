@@ -33,6 +33,31 @@ void level_order(struct bst *t)
  */
 
 /*
+ * 非递归的中序遍历二叉树
+ *
+
+void inorder(struct bst *t)
+{
+	struct stack s;
+	struct bst *p = t;
+
+	init_stack(s);
+
+	while (p || !empty_stack(s)) {
+		if (p != NULL) {
+			push_stack(s, p);
+			p = p->left;
+		} else [
+			pop_stack(s,p);
+			visit(p);
+			p = p->right;
+		}
+	}
+}
+ *
+ */
+
+/*
  * implement binary search tree
  * (BST)
  */

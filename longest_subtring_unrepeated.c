@@ -147,8 +147,9 @@ int lsnr_dp_hash_opt(char *str)
 	char hash[256];
 
 	max = last_start = 0;
-	hash[str[0]] = 0;
 	memset(hash, -1, sizeof(hash));
+
+	hash[str[0]] = 0;
 	size = strlen(str);
 
 	for (i = 1; i < size; i++) {
@@ -158,10 +159,11 @@ int lsnr_dp_hash_opt(char *str)
 		} else {
 			if (last_start <= hash[str[i]]) {
 				curlen = i - hash[str[i]];
+				last_start = hash[str[i]] + 1;
 				hash[str[i]] = i;
-				last_start = i;
 			} else {
 				curlen++;
+				last_start = i;
 			}
 		}
 
@@ -175,11 +177,11 @@ int lsnr_dp_hash_opt(char *str)
 
 int main()
 {
-	char str[] = "abde";
+	char str[] = "abdefab";
 
-	printf("%d\n", lsnr_brute(str));
-	printf("%d\n", lsnr_dp(str));
-	printf("%d\n", lsnr_dp_hash(str));
+//	printf("%d\n", lsnr_brute(str));
+//	printf("%d\n", lsnr_dp(str));
+//	printf("%d\n", lsnr_dp_hash(str));
 	printf("%d\n", lsnr_dp_hash_opt(str));
 	return 0;
 }

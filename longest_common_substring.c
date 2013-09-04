@@ -68,7 +68,7 @@ int lcs_dp(char *x, char *y)
 	n = strlen(y);
 
 	int dp[m][n];
-	memset(&dp[0][0], 0, m*n*sizeof(int));
+//	memset(&dp[0][0], 0, m*n*sizeof(int));
 
 	for (i = 0; i < m; i++) {
 		for (j = 0; j < n; j++) {
@@ -82,7 +82,8 @@ int lcs_dp(char *x, char *y)
 				if (dp[i][j] > max) {
 					max = dp[i][j];
 				}
-			}
+			} else 
+				dp[i][j] = 0;
 			//printf("%d\t", dp[i][j]);
 		}
 		//printf("\n");

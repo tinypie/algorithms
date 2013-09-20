@@ -90,6 +90,32 @@ int scanning(int *a, int n)
 	return max_so_far;
 }
 
+/*
+ * dynamic programming 
+ *
+ * start[i] = max{A[i], start[i+1]+A[i]} 表示包含A[i]的和最大的数组和
+ * All[i] = max{start[i], All[i+1]} 表示A[i]~A[n-1]中，最大的数组和
+ *
+ */
+int max(int x, int y)
+{
+	return (x>y) ? x : y;
+}
+
+int maximum_dp(int a[], int n)
+{
+	int all, start, i;
+
+	all = start = a[n-1];
+
+	for (i = n-2; i >= 0; i--) {
+		start = a[i] > (start + a[i]) ? a[i] : (start + a[i]);
+		all = start > all ? start : all;
+	}
+
+	return all;
+}
+
 int main()
 {
 	int start, end, a[10] = {31, -41, 59, 26, -53, 58, 97, -93, -23, 84};
@@ -100,6 +126,6 @@ int main()
 //	printf("from %d to %d ==> %d\n", start, end, sum);
 	sum = scanning(a, 10);
 	printf("%d\n", sum);
-
+	printf("%d\n", maximum_dp(b, 4));
 	return 0;
 }

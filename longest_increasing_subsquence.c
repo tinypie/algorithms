@@ -112,10 +112,6 @@ int lis_perfect(int a[], int n)
 	return len;
 }
 
-			
-	
-
-
 int main() 
 {
 	int a[8] = {1,-1,2,-3,4,-5,6,-7};

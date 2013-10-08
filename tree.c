@@ -33,6 +33,40 @@ void level_order(struct bst *t)
  */
 
 /*
+ *
+
+
+void pre_order(struct bt *t)
+{
+	if (t != NULL) {
+		cout << t->data;
+		pre_order(t->lchild);
+		pre_order(t->rchild);
+	}
+}
+
+
+//非递归前序
+
+void pre_order_ite(struct bt *t)
+{
+	struct stact st;
+	struct bt *p = t;
+	
+	init_stack(s);
+	while(p || !empty_stack(st)) {
+		if (p != NULL) {
+			cout << p->data;
+			push_stack(st, p);
+			p = p->lchild;
+		} else {
+			pop_stack(st, p);
+			p = p->rchild;
+		}
+	}
+
+}
+
  * 非递归的中序遍历二叉树
  *
 
@@ -47,7 +81,7 @@ void inorder(struct bst *t)
 		if (p != NULL) {
 			push_stack(s, p);
 			p = p->left;
-		} else [
+		} else {
 			pop_stack(s,p);
 			visit(p);
 			p = p->right;

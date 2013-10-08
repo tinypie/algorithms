@@ -63,7 +63,3 @@ int delete_queue(struct queue *q, DataType *x)
 	return 1;
 }
 
-
-
-
-
